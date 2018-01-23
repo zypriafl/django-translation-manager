@@ -122,6 +122,8 @@ class Command(OriginCommand):
         if 'djangojs' in options['domain']:
             kwargs = deepcopy(options)
             kwargs.update({'domain': 'djangojs'})
+            # Force jsx-files to be read
+            kwargs.update({'extensions': ['js', 'jsx']})
             super(Command, self).handle(*args, **kwargs)
 
         try:
